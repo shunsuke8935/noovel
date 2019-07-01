@@ -1,0 +1,2 @@
+class ClipWriter < ApplicationRecord
+end
