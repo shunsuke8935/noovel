@@ -13,3 +13,12 @@
  *= require_tree .
  *= require_self
  */
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+
+.sabtitle{
+	font-size: 10px;
+}
+.page-header{
+	margin: 40px 0 0px;
+}
