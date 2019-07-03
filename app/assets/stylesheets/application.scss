@@ -16,9 +16,39 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
-.sabtitle{
-	font-size: 10px;
+*{
+	font-family: 'Arial Black',sans-serif;
 }
-.page-header{
-	margin: 40px 0 0px;
+
+.title{
+	display: inline-block;
+	vertical-align: bottom;
+	font-size: 60px;
+
+}
+.sabtitle{
+	display: inline-block;
+	vertical-align: bottom;
+	font-size: 13px;
+	padding-left: 50px;
+}
+.signup{
+	display: inline-block;
+	float: right;
+	padding-right: 10px;
+}
+.rogin{
+	display: inline-block;
+	float: right;
+	padding-right: 10px;
+}
+.list-item{
+	display: inline-block;
+}
+.nav-element{
+	background-color: skyblue;
+	line-height: 40px
+}
+.list-item{
+	padding-left: 20px;
 }
