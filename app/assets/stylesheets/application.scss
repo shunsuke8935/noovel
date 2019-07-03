@@ -13,11 +13,16 @@
  *= require_tree .
  *= require_self
  */
+
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
-*{
+* {
 	font-family: 'Arial Black',sans-serif;
+}
+
+.container{
+	display: inline-block;
 }
 
 .title{
@@ -51,4 +56,23 @@
 }
 .list-item{
 	padding-left: 20px;
+}
+.content{
+	text-align: center;
+	margin-bottom: 50px;
+	font-size: 30px;
+	border: 1px solid black;
+}
+.row{
+	margin-right: -107px;
+	margin-left: 15px;
+}
+.sidebar{
+	text-align: center;
+	height: 1000px;
+	border: 1px solid black;
+}
+.side-bar{
+	border: 1px solid black;
+	height: 1000px;
 }
