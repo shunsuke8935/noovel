@@ -1,2 +1,24 @@
-<h1>Novels#new</h1>
-<p>Find me in app/views/novels/new.html.erb</p>
+
+<%= form_for @novel, :url => novels_path do |f| %>
+<div class="container">
+	<div class="row">
+		<div class="form-group col-md-6 col-md-offset-3">
+			<h1>小説登録</h1>
+			<tr>小説タイトル<span>（必須）</span>
+				<div class="form-group"><%= f.text_field :title ,class:'form-control'%></div>
+            </tr>
+
+            <tr>あらすじ<span>（必須）</span>
+                <div class="form-group"><%= f.text_field :synopsis ,class:'form-control'%></div>
+            </tr>
+
+            <tr>ジャンル<span>（必須）</span>
+                <div class="form-group"><%= f.select :genre,[["ファンタジー・冒険・SF", "ファンタジー"], ["恋愛", "恋愛"],  ["ミステリー・サスペンス", "ミステリー"], ["歴史", "歴史"],["ホラー・オカルト", "ホラー"] ], class:'form-control' %>
+                </div>
+            </tr>
+
+            <%= f.submit '登録', class:'btn btn-primary' %>
+        </div>
+    </div>
+</div>
+<% end %>

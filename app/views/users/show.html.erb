@@ -1,0 +1,14 @@
+<div class="well"><%= current_user.name %>さんのマイページ</div>
+<div class="container">
+	<div class="row">
+		<div class="novel-index col-md-6">
+			<p>投稿作品一覧</p>
+            <% @novels.each do |novel| %>
+            <div class="well well-lg">
+                <p><%= link_to novel.title, novel_path(novel) %><%= novel.synopsis.truncate(30) %></p>
+            </div>
+            <% end %>
+        </div>
+        <%= image_tag('img/sample_img.jpg',  class: 'mypage-image col-md-5 col-md-offset-1') %>
+    </div>
+</div>

@@ -1,2 +1,29 @@
-<h1>Pages#index</h1>
-<p>Find me in app/views/pages/index.html.erb</p>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-6 col-md-offset-3">
+		    <p class="noveltitle"><%= @novel.title %></p>
+			<div class="writer">作者：<%= @novel.user.name %></div>
+			<p>あらすじ</p>
+			<p><%= @novel.synopsis %></p>
+			<div>ジャンル：<%= @novel.genre %></div>
+			<% @pages.each do |page| %>
+			<div class="well well-sm">
+			<%= link_to page.title, novel_page_path(@novel, page) %>
+			</div>
+            <% end %>
+            <% if @novel.favorited_by?(current_user) %>
+				<%= link_to novel_favorite_path(@novel, @favorite), method: :delete do %>
+					<i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
+					<%= @novel.favorites.count %>いいね
+				<% end %>
+			<% else %>
+				<%= link_to novel_favorites_path(@novel), method: :post do %>
+					<i class="fa fa-heart-o" aria-hidden="true"></i>
+					<%= @novel.favorites.count %>いいね
+				<% end %>
+			<% end %>
+        </div>
+    </div>
+</div>
+

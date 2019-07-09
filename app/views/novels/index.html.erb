@@ -1,2 +1,60 @@
-<h1>Novels#index</h1>
-<p>Find me in app/views/novels/index.html.erb</p>
+<div class="container">
+	<div class="row">
+		<div class="side-bar col-md-3">
+			<div>運営側お知らせ掲示板</div>
+		</div>
+		<div class="novels col-md-4 col-md-offset-1">
+
+		<div class="content">
+			<h3>新着小説</h3>
+
+			<% @novel.last(5).each do |novel| %>
+				<div class="panel panel-info">
+		            <div class="panel-heading">
+			            <h5 class="panel-title"><%= link_to novel.title, novel_path(novel) %></h5>
+			            <div class="writer-name"><h5><%= link_to novel.user.name, user_path(novel.user.id) %></h5></div>
+			        </div>
+		            <div class="panel-body"><%= novel.synopsis.truncate(50) %></div>
+	            </div>
+            <% end %>
+		</div>
+
+		<div class="content">
+			<!-- ブックマークランキング -->
+			<div class="novel">小説</div>
+			<div class="novel">小説</div>
+		    <div class="novel">小説</div>
+		    <div class="novel">小説</div>
+		    <div class="novel">小説</div>
+		</div>
+		<div class="content">
+			<!-- ジャンル別ランキング1 -->
+			<div class="novel">小説</div>
+			<div class="novel">小説</div>
+		    <div class="novel">小説</div>
+		    <div class="novel">小説</div>
+		    <div class="novel">小説</div>
+		</div>
+		<div class="content">
+			<!-- ジャンル別ランキング2 -->
+			<div class="novel">小説</div>
+			<div class="novel">小説</div>
+		    <div class="novel">小説</div>
+		    <div class="novel">小説</div>
+		    <div class="novel">小説</div>
+		</div>
+		<div class="content">
+			<!-- ジャンル別ランキング3 -->
+			<div class="novel">小説</div>
+			<div class="novel">小説</div>
+		    <div class="novel">小説</div>
+		    <div class="novel">小説</div>
+		    <div class="novel">小説</div>
+		</div>
+
+	    </div>
+	    <div class="sidebar col-md-3 col-md-offset-1">
+	    	<div>広告掲載スペース</div>
+	    </div>
+	</div>
+</div>

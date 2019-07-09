@@ -1,0 +1,136 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+
+* {
+	font-family: 'Arial Black',sans-serif;
+}
+
+.container{
+	display: inline-block;
+}
+
+.title{
+	display: inline-block;
+	vertical-align: bottom;
+	font-size: 60px;
+
+}
+.sabtitle{
+	display: inline-block;
+	vertical-align: bottom;
+	font-size: 13px;
+	padding-left: 50px;
+}
+.signup{
+	display: inline-block;
+	float: right;
+	padding-right: 10px;
+}
+.rogin{
+	display: inline-block;
+	float: right;
+	padding-right: 10px;
+}
+.logaut{
+	display: inline-block;
+	float: right;
+	padding-right: 10px;
+}
+.list-item{
+	display: inline-block;
+}
+.nav-element{
+	background-color: skyblue;
+	line-height: 40px
+}
+.list-item{
+	padding-left: 20px;
+}
+.content{
+	margin-bottom: 50px;
+	font-size: 6px;
+}
+.panel-title{
+	font-size: 15px;
+	display: inline-block;
+}
+.writer-name{
+	display: inline-block;
+	text-align: right;
+	width: 100%;
+}
+h5{
+	font-size: 13px;
+}
+.panel-info{
+	margin-bottom: 10px;
+}
+.row{
+	margin-right: -107px;
+	margin-left: 15px;
+}
+.sidebar{
+	text-align: center;
+	height: 1000px;
+	border: 1px solid black;
+}
+.side-bar{
+	border: 1px solid black;
+	height: 1000px;
+}
+textarea.form-control{
+	resize: none;
+	height: 1000px;
+	font-size: 20px;
+}
+.mypage-title{
+	border: 1px solid black;
+	font-size: 50px;
+}
+.mypage-image{
+	height: 600px;
+	display: inline-block;
+	margin-top: -20px;
+}
+.novel-title{
+	display: inline-block;
+}
+.novel-index{
+	background-size: 1000px;
+}
+.noveltitle{
+	text-align: center;
+	font-size: 50px;
+	font-weight: 700;
+}
+.koumoku{
+	display: inline-block;
+}
+.writer{
+	text-align: right;
+}
+.button1 {
+	text-align: center;
+	margin-top: 50px;
+}
+.favorite-panel-title{
+	font-size: 20px;
+}
+.favorite-genre{
+	font-size: 10px;
+}
