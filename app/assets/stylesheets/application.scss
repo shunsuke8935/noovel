@@ -67,6 +67,15 @@
 }
 .panel-title{
 	font-size: 15px;
+	display: inline-block;
+}
+.writer-name{
+	display: inline-block;
+	text-align: right;
+	width: 100%;
+}
+h5{
+	font-size: 13px;
 }
 .panel-info{
 	margin-bottom: 10px;
@@ -118,4 +127,10 @@ textarea.form-control{
 .button1 {
 	text-align: center;
 	margin-top: 50px;
+}
+.favorite-panel-title{
+	font-size: 20px;
+}
+.favorite-genre{
+	font-size: 10px;
 }

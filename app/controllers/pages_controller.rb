@@ -14,6 +14,8 @@ class PagesController < ApplicationController
   def index
     @novel = Novel.find(params[:novel_id])
     @pages = @novel.pages
+    @favorite = Favorite.find_by(user_id:current_user.id, novel_id: @novel)
+
   end
 
   def show

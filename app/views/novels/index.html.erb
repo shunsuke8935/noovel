@@ -11,7 +11,9 @@
 			<% @novel.last(5).each do |novel| %>
 				<div class="panel panel-info">
 		            <div class="panel-heading">
-			            <h5 class="panel-title"><%= link_to novel.title %></h5></div>
+			            <h5 class="panel-title"><%= link_to novel.title, novel_path(novel) %></h5>
+			            <div class="writer-name"><h5><%= link_to novel.user.name, user_path(novel.user.id) %></h5></div>
+			        </div>
 		            <div class="panel-body"><%= novel.synopsis.truncate(50) %></div>
 	            </div>
             <% end %>

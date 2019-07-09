@@ -7,8 +7,11 @@ Rails.application.routes.draw do
   resources :users, only: [:edit, :show, :update, :destroy]
   resources :novels, only: [:index, :new, :create, :show, :edit, :update, :destroy] do
     resources :pages, only: [:index, :new, :create, :show, :edit, :update, :destroy]
+    resources :favorites, only: [:create, :destroy]
+
   end
-  resources :favorites, only: [:index, :create, :destroy]
+  resources :favorites, only: [:index]
+
   resources :histories, only: [:index, :create, :destroy]
   resources :clips, only: [:index, :create, :destroy]
   resources :clip_writers, only: [:index, :create, :destroy]

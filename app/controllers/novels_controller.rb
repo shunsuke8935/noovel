@@ -16,6 +16,7 @@ class NovelsController < ApplicationController
 
   def show
   	@novel = Novel.find(params[:id])
+    @favorite = Favorite.find_by(user_id:current_user.id, novel_id: @novel.id)
   end
 
   def edit
