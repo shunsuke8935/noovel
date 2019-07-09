@@ -1,18 +1,54 @@
+<% if user_signed_in? %>
 <header>
         	<div class="container">
 			  <div class="row">
 			    <h1 class="title">Noovel</h1>
 			    <p class="sabtitle">小説を無料で読み放題、<br>投稿し放題のサイトです。<br>会社からのスカウトメッセージを受け取ることも可能です。</p>
-			    <p class="rogin">ログイン</p>
-			    <p class="signup">会員登録</p>
+
+			    <%= link_to "退会", user_registration_path, class:'logaut', method: :delete %>
+
+			    <%= link_to "ログアウト", destroy_user_session_path, class:'logaut', method: :delete %>
+
 			  </div>
 			</div>
 		</header>
 		<nav class="navbar">
 			<ul class="nav-element">
-				<li class="list-item">HOME</li>
+				<%= link_to "HOME", root_path, class:'list-item' %>
+
 				<li class="list-item">ブックマーク</li>
-				<li class="list-item">いいねランキング</li>
+
+				<%= link_to "いいねランキング", favorites_path, class:'list-item' %>
+
 				<li class="list-item">閲覧履歴</li>
+				<%= link_to "マイページ", user_path(current_user.id), class:'list-item' %>
+
+				<%= link_to "執筆", new_novel_path, class:'list-item' %>
 			</ul>
 		</nav>
+
+		<% else %>
+
+		<header>
+        	<div class="container">
+			  <div class="row">
+			    <h1 class="title">Noovel</h1>
+			    <p class="sabtitle">小説を無料で読み放題、<br>投稿し放題のサイトです。<br>会社からのスカウトメッセージを受け取ることも可能です。</p>
+			    <%= link_to "ログイン", new_user_session_path,class:'rogin' %>
+
+			    <%= link_to "会員登録", new_user_registration_path,class:'signup' %>
+
+
+			  </div>
+			</div>
+		</header>
+		<nav class="navbar">
+			<ul class="nav-element">
+				<%= link_to "HOME", root_path, class:'list-item' %>
+
+				<%= link_to "いいねランキング", favorites_path, class:'list-item' %>
+
+
+			</ul>
+		</nav>
+<% end %>

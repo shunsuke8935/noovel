@@ -6,13 +6,17 @@
 		<div class="novels col-md-4 col-md-offset-1">
 
 		<div class="content">
-			<!-- eachでいいねランキングを表示 -->
-			<div class="novel">小説</div>
-			<div class="novel">小説</div>
-		    <div class="novel">小説</div>
-		    <div class="novel">小説</div>
-		    <div class="novel">小説</div>
+			<h3>新着小説</h3>
+
+			<% @novel.last(5).each do |novel| %>
+				<div class="panel panel-info">
+		            <div class="panel-heading">
+			            <h5 class="panel-title"><%= link_to novel.title %></h5></div>
+		            <div class="panel-body"><%= novel.synopsis.truncate(50) %></div>
+	            </div>
+            <% end %>
 		</div>
+
 		<div class="content">
 			<!-- ブックマークランキング -->
 			<div class="novel">小説</div>
