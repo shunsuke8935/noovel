@@ -12,6 +12,7 @@ class NovelsController < ApplicationController
 
   def index
     @novel = Novel.all
+    @all_ranks = Novel.find(Favorite.group(:novel_id).order('count(novel_id) desc').pluck(:novel_id))
   end
 
   def show

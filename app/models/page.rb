@@ -1,3 +1,12 @@
 class Page < ApplicationRecord
 	belongs_to :novel
+
+	def previous
+		novel.pages.order('published_at desc, id desc').where('published_at <= ? and id < ?', published_at, id).first
+	end
+
+	def next
+		novel.pages.order('published_at desc, id desc').where('published_at >= ? and id > ?', published_at, id).reverse.first
+	end
 end
+

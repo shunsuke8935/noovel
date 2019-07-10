@@ -1,9 +1,21 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-6 col-md-offset-3">
-			<p class="noveltitle"><%= @page.title %></p>
-			    <%= @page.text %>
-			<p>Find me in app/views/pages/show.html.erb</p>
-        </div>
+			<%= @novel.pages.count %>p
+			<p class="noveltitle">
+				<%= @page.title %>
+			</p>
+			    <p><%= @page.text %></p>
+			<div class="bt">
+		    	<% if Page.where("id < #{@page.id} and novel_id = #{@page.novel.id}").exists? %>
+					<%= link_to '前へ', novel_page_path(@novel, @mae),  class:'btn btn-danger' %>
+		        <% end %>
+
+		    	<% if Page.where("id > #{@page.id} and novel_id = #{@page.novel.id}").exists? %>
+
+					<%= link_to '次へ', novel_page_path(@novel, @ato), class:'btn btn-danger'  %>
+		        <% end %>
+		    </div>
+		</div>
     </div>
 </div>

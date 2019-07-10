@@ -20,6 +20,15 @@ class PagesController < ApplicationController
 
   def show
     @page = Page.find(params[:id])
+    @novel = Novel.find(@page.novel_id)
+    @novel.pages.count
+    if Page.where("id < #{@page.id} and novel_id = #{@page.novel.id}").exists? 
+      @mae = Page.where("id < #{@page.id} and novel_id = #{@page.novel.id}").max
+    end
+    if Page.where("id > #{@page.id} and novel_id = #{@page.novel.id}").exists?
+      @ato = Page.where("id > #{@page.id} and novel_id = #{@page.novel.id}").min
+    end
+    @novel = Novel.find(@page.novel_id)
   end
 
   def edit
