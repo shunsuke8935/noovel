@@ -5,54 +5,40 @@
 		</div>
 		<div class="novels col-md-4 col-md-offset-1">
 
-		<div class="content">
-			<h3>新着小説</h3>
+			<div class="content">
+				<h3>新着小説</h3>
 
-			<% @novel.last(5).each do |novel| %>
-				<div class="panel panel-info">
-		            <div class="panel-heading">
-			            <h5 class="panel-title"><%= link_to novel.title, novel_path(novel) %></h5>
-			            <div class="writer-name"><h5><%= link_to novel.user.name, user_path(novel.user.id) %></h5></div>
-			        </div>
-		            <div class="panel-body"><%= novel.synopsis.truncate(50) %></div>
-	            </div>
-            <% end %>
-		</div>
+				<% @novel.last(5).each do |novel| %>
+					<div class="panel panel-info">
+			            <div class="panel-heading">
+				            <h5 class="panel-title"><%= link_to novel.title, novel_path(novel) %></h5>
+				            <div class="writer-name"><h5><%= link_to novel.user.name, user_path(novel.user.id) %></h5></div>
+				        </div>
+			            <div class="panel-body"><%= novel.synopsis.truncate(50) %></div>
+		            </div>
+	            <% end %>
+			</div>
+			<div class="content">
+				<h3>いいねトップ</h3>
 
-		<div class="content">
-			<!-- ブックマークランキング -->
-			<div class="novel">小説</div>
-			<div class="novel">小説</div>
-		    <div class="novel">小説</div>
-		    <div class="novel">小説</div>
-		    <div class="novel">小説</div>
-		</div>
-		<div class="content">
-			<!-- ジャンル別ランキング1 -->
-			<div class="novel">小説</div>
-			<div class="novel">小説</div>
-		    <div class="novel">小説</div>
-		    <div class="novel">小説</div>
-		    <div class="novel">小説</div>
-		</div>
-		<div class="content">
-			<!-- ジャンル別ランキング2 -->
-			<div class="novel">小説</div>
-			<div class="novel">小説</div>
-		    <div class="novel">小説</div>
-		    <div class="novel">小説</div>
-		    <div class="novel">小説</div>
-		</div>
-		<div class="content">
-			<!-- ジャンル別ランキング3 -->
-			<div class="novel">小説</div>
-			<div class="novel">小説</div>
-		    <div class="novel">小説</div>
-		    <div class="novel">小説</div>
-		    <div class="novel">小説</div>
+				<% @all_ranks.each.with_index(1) do |novel, i| %>
+						<div class="panel panel-danger">
+				            <div class="panel-heading">
+					            <h5 class="panel-title"><%= link_to novel.title, novel_path(novel) %></h5>
+					            <div class="writer-name">
+					            	<h5>
+					            		<%= link_to novel.user.name, user_path(novel.user.id) %>
+					            	</h5>
+					            </div>
+					        </div>
+				            <div class="panel-body">
+				            	<%= novel.synopsis.truncate(50) %>
+				            </div>
+			            </div>
+		        <% end %>
+		    </div>
 		</div>
 
-	    </div>
 	    <div class="sidebar col-md-3 col-md-offset-1">
 	    	<div>広告掲載スペース</div>
 	    </div>

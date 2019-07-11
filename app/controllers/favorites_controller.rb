@@ -7,6 +7,7 @@ class FavoritesController < ApplicationController
   	@novel = Novel.find(params[:novel_id])
   	favorite = current_user.favorites.new(novel_id: @novel.id)
   	favorite.save
+  	redirect_back(fallback_location: root_path)
   end
 
   def destroy
@@ -14,7 +15,9 @@ class FavoritesController < ApplicationController
     @favorite = Favorite.find_by(user_id:current_user.id, novel_id: @novel.id)
 
   	@favorite.destroy
+  	redirect_back(fallback_location: root_path)
   end
+
   private
   def favorite_params
   	params.require(:favorite).permit(:id, :novel_id, :user_id)
