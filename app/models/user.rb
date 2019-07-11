@@ -6,5 +6,6 @@ class User < ApplicationRecord
 
          has_many :novels
          has_many :favorites, dependent: :destroy
+         has_many :history, dependent: :destroy
 
 end

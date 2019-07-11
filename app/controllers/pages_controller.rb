@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   def new
+    @header = Novel.find(params[:novel_id])
   	@page = Page.new
   end
 
@@ -8,7 +9,7 @@ class PagesController < ApplicationController
   	@novel = Novel.find(params[:novel_id])
   	@page.novel_id = @novel.id
   	@page.save
-  	redirect_to new_novel_page_path(@novel.id)
+  	redirect_to novel_path(@novel.id)
   end
 
   def index
@@ -21,6 +22,22 @@ class PagesController < ApplicationController
   def show
     @page = Page.find(params[:id])
     @novel = Novel.find(@page.novel_id)
+    new_history = @novel.history.new
+    new_history.user_id = current_user.id
+
+    if current_user.history.exists?(novel_id: "#{params[:novel_id]}")
+      old_history = current_user.history.find_by(novel_id: "#{params[:novel_id]}")
+      old_history.destroy
+    end
+
+    new_history.save
+
+    histories_stock_limit = 10
+    histories = current_user.history.all
+    if histories.count > histories_stock_limit
+      histories[0].destroy
+    end
+
     @novel.pages.count
     if Page.where("id < #{@page.id} and novel_id = #{@page.novel.id}").exists? 
       @mae = Page.where("id < #{@page.id} and novel_id = #{@page.novel.id}").max
