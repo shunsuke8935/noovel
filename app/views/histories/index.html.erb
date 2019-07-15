@@ -1,3 +1,14 @@
-<h1>Histories#index</h1>
-<%= @novel.title %>
-<p>Find me in app/views/histories/index.html.erb</p>
+<div class="container">
+	<div class="row">
+		<div class="history col-md-4 col-md-offset-2">
+			<% @history.reverse_each do |history| %>
+			<div class="well well-lg">
+			<%= link_to history.novel.title, novel_path(history.novel.id) %>
+		    </div>
+			<% end %>
+		</div>
+		<div class="col-md-6">
+				<%= image_tag('img/sample2_img.jpg', class: 'history-image') %>
+			</div>
+    </div>
+</div>
