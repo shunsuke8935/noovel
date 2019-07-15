@@ -5,7 +5,8 @@
 			<p>投稿作品一覧</p>
             <% @novels.each do |novel| %>
             <div class="well well-lg">
-                <p><%= link_to novel.title, novel_path(novel) %><%= novel.synopsis.truncate(30) %></p>
+                <p><%= link_to novel.title, novel_path(novel) %></p>
+                <p>><%= novel.synopsis.truncate(30) %></p>
             </div>
             <% end %>
         </div>
