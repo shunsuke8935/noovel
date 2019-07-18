@@ -1,0 +1,6 @@
+<% @novel.each do |novel| %>
+    <h2><%= novel.title %></h2>
+    <%= novel.synopsis %>
+    <p>Tags:  <%= novel.tag_list %></p>
+  <% end %>
+</div>

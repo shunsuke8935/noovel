@@ -1,0 +1,18 @@
+<h1>Serch#index</h1>
+<table>
+  <thead>
+    <tr>
+      <th><%= sort_link(@search, :title) -%></th>
+      <th><%= sort_link(@search, :synopsis) -%></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @search_novels.each do |novel| %>
+    <tr>
+      <td><%= novel.title %></td>
+      <td><%= novel.synopsis %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<p>Find me in app/views/serch/index.html.erb</p>

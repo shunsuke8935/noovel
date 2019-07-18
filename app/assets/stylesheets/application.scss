@@ -13,6 +13,7 @@
  *= require_tree .
  *= require_self
  */
+
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
@@ -154,4 +155,20 @@ textarea.form-control{
 .favorite-image{
 	height: 600px;
 	width: 100%;
+}
+input[type="search"]{
+	width: 300px;
+	height: 30px;
+}
+.btn{
+	display: inline-block;
+}
+.search{
+	display: inline-block;
+	text-align: right;
+	height: 40px;
+	padding-left: 119px;
+}
+.dt{
+	display: inline-block;
 }

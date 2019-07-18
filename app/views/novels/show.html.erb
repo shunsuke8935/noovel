@@ -6,6 +6,10 @@
 				<p>あらすじ</p>
 				<p><%= @novel.synopsis %></p>
 				<div>ジャンル：<%= @novel.genre %></div>
+				<div>タグ：
+				  <span class="label label-info">
+				  	<%= raw @novel.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></span>
+			    </div>
 				<div class="button1"><%= link_to 'この小説を読む', novel_pages_path(@novel.id), class:'btn btn-primary' %></div>
 				<% if @novel.user_id == current_user.id %>
 					<div class="button1">
