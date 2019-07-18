@@ -21,7 +21,7 @@
 			<div class="content">
 				<h3>いいねトップ</h3>
 
-				<% @all_ranks.each.with_index(1) do |novel, i| %>
+				<% @ranks.each.with_index(1) do |novel, i| %>
 						<div class="panel panel-danger">
 				            <div class="panel-heading">
 					            <h5 class="panel-title"><%= link_to novel.title, novel_path(novel) %></h5>
@@ -40,7 +40,29 @@
 		</div>
 
 	    <div class="sidebar col-md-3 col-md-offset-1">
-	    	<div>広告掲載スペース</div>
+	    	<h3>ファンタジーランキング</h3>
+	    	<% @genre_ranks.each.with_index(1) do |genre| %>
+	    	<%= link_to genre.title, novel_path(genre.id) %>
+	    	<div class="alert alert-success" role="alert"><%= genre.synopsis.truncate(30) %></div>
+	    	<% end %>
+
+	    	<h3>恋愛ランキング</h3>
+	    	<% @genre2_ranks.each.with_index(1) do |genre| %>
+	    	<%= link_to genre.title, novel_path(genre.id) %>
+	    	<div class="alert alert-success" role="alert"><%= genre.synopsis.truncate(30) %></div>
+	    	<% end %>
+
+	    	<h3>ミステリーランキング</h3>
+	    	<% @genre3_ranks.each.with_index(1) do |genre| %>
+	    	<%= link_to genre.title, novel_path(genre.id) %>
+	    	<div class="alert alert-success" role="alert"><%= genre.synopsis.truncate(30) %></div>
+	    	<% end %>
+
+	    	<h3>ホラーランキング</h3>
+	    	<% @genre4_ranks.each.with_index(1) do |genre| %>
+	    	<%= link_to genre.title, novel_path(genre.id) %>
+	    	<div class="alert alert-success" role="alert"><%= genre.synopsis.truncate(30) %></div>
+	    	<% end %>
 	    </div>
 	</div>
 </div>

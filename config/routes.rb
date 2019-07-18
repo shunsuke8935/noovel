@@ -6,13 +6,14 @@ Rails.application.routes.draw do
   root 'novels#index'
   resources :users, only: [:edit, :show, :update, :destroy] do
     resources :histories, only: [:index, :create, :destroy]
+    resources :clips, only: [:index]
   end
   resources :novels, only: [:index, :new, :create, :show, :edit, :update, :destroy] do
     resources :pages, only: [:index, :new, :create, :show, :edit, :update, :destroy]
     resources :favorites, only: [:create, :destroy]
+    resources :clips, only: [:create, :destroy]
   end
   resources :favorites, only: [:index]
 
-  resources :clips, only: [:index, :create, :destroy]
   resources :clip_writers, only: [:index, :create, :destroy]
 end

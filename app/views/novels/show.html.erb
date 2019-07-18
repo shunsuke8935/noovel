@@ -11,7 +11,12 @@
 					<div class="button1">
 						<%= link_to '小説の続きを投稿する', new_novel_page_path(@novel.id), class:'btn btn-danger' %>
 					</div>
-						<%= link_to '小説を編集する', edit_novel_path(@novel.id) %>
+						<p><%= link_to '小説を編集する', edit_novel_path(@novel.id) %></p>
+						<% if @novel.cliped_by?(current_user) %>
+						<p><%= link_to "ブックマークを削除する", novel_clip_path(@novel, @clip.id), method: :delete %></p>
+						<% else %>
+						<p><%= link_to "ブックマークに追加する",novel_clips_path(@novel ), method: :post %></p>
+						<% end %>
 					</div>
 				<% else %>
 					<% if @novel.favorited_by?(current_user) %>

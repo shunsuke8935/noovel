@@ -1,8 +1,8 @@
-<div class="well"><%= current_user.name %>さんのマイページ</div>
+<div class="well"><%= @user.name %>さんのページ</div>
 <div class="container">
 	<div class="row">
 		<div class="novel-index col-md-6">
-			<p>投稿作品一覧</p>
+			<h3>投稿作品一覧</h3>
             <% @novels.each do |novel| %>
             <div class="well well-lg">
                 <p><%= link_to novel.title, novel_path(novel) %></p>
@@ -10,6 +10,6 @@
             </div>
             <% end %>
         </div>
-        <%= image_tag('img/sample_img.jpg',  class: 'mypage-image col-md-5 col-md-offset-1') %>
+        <%= image_tag('img/sample_img.jpg',  class: 'mypage-image col-md-6') %>
     </div>
 </div>
