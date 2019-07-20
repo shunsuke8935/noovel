@@ -6,12 +6,21 @@
 				<p>あらすじ</p>
 				<p><%= @novel.synopsis %></p>
 				<div>ジャンル：<%= @novel.genre %></div>
+				<div>タグ：
+				  <span class="label label-info">
+				  	<%= raw @novel.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></span>
+			    </div>
 				<div class="button1"><%= link_to 'この小説を読む', novel_pages_path(@novel.id), class:'btn btn-primary' %></div>
 				<% if @novel.user_id == current_user.id %>
 					<div class="button1">
 						<%= link_to '小説の続きを投稿する', new_novel_page_path(@novel.id), class:'btn btn-danger' %>
 					</div>
-						<%= link_to '小説を編集する', edit_novel_path(@novel.id) %>
+						<p><%= link_to '小説を編集する', edit_novel_path(@novel.id) %></p>
+						<% if @novel.cliped_by?(current_user) %>
+						<p><%= link_to "ブックマークを削除する", novel_clip_path(@novel, @clip.id), method: :delete %></p>
+						<% else %>
+						<p><%= link_to "ブックマークに追加する",novel_clips_path(@novel ), method: :post %></p>
+						<% end %>
 					</div>
 				<% else %>
 					<% if @novel.favorited_by?(current_user) %>

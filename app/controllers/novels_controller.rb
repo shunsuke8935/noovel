@@ -13,11 +13,17 @@ class NovelsController < ApplicationController
   def index
     @novel = Novel.all
     @all_ranks = Novel.find(Favorite.group(:novel_id).order('count(novel_id) desc').pluck(:novel_id))
+    @ranks = Novel.find(Favorite.group(:novel_id).order('count(novel_id) desc').limit(5).pluck(:novel_id))
+    @genre_ranks = @all_ranks.select{ |genre| genre.genre == "ファンタジー" }
+    @genre2_ranks = @all_ranks.select{ |genre| genre.genre == "恋愛" }
+    @genre3_ranks = @all_ranks.select{ |genre| genre.genre == "ミステリー" }
+    @genre4_ranks = @all_ranks.select{ |genre| genre.genre == "ホラー" }
   end
 
   def show
   	@novel = Novel.find(params[:id])
     @favorite = Favorite.find_by(user_id:current_user.id, novel_id: @novel.id)
+    @clip = Clip.find_by(user_id: current_user.id, novel_id: @novel)
   end
 
   def edit
@@ -34,6 +40,6 @@ class NovelsController < ApplicationController
   private
 
   def novel_params
-  	params.require(:novel).permit(:synopsis, :genre, :title, :user_id)
+  	params.require(:novel).permit(:synopsis, :genre, :title, :user_id, :tag_list)
   end
 end

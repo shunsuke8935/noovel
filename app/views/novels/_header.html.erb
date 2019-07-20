@@ -9,6 +9,13 @@
 
 			    <%= link_to "ログアウト", destroy_user_session_path, class:'logaut', method: :delete %>
 
+                <div class="search">
+			    <%= search_form_for @search, url: serch_index_path do |f| %>
+		          <dt class="dt"><%= f.search_field :title_or_genre_cont ,placeholder: '検索するテキストを入力...', class: 'form-control' %></dt>
+		          <button type="submit" class="btn btn-default">検索</button>
+		         <% end %>
+		        </div>
+
 			  </div>
 			</div>
 		</header>
@@ -16,7 +23,7 @@
 			<ul class="nav-element">
 				<%= link_to "HOME", root_path, class:'list-item' %>
 
-				<li class="list-item">ブックマーク</li>
+				<%= link_to "ブックマーク", user_clips_path(current_user.id), class:'list-item' %>
 
 				<%= link_to "いいねランキング",favorites_path, class:'list-item' %>
 

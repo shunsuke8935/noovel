@@ -13,11 +13,15 @@
  *= require_tree .
  *= require_self
  */
+
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
 * {
 	font-family: 'Arial Black',sans-serif;
+}
+body{
+	background-color: #EEFFFF;
 }
 
 .container{
@@ -85,9 +89,8 @@ h5{
 	margin-left: 15px;
 }
 .sidebar{
-	text-align: center;
+	text-align: left;
 	height: 1000px;
-	border: 1px solid black;
 }
 .side-bar{
 	border: 1px solid black;
@@ -105,7 +108,7 @@ textarea.form-control{
 .mypage-image{
 	height: 600px;
 	display: inline-block;
-	margin-top: -20px;
+	margin-top: 56px;
 }
 .novel-title{
 	display: inline-block;
@@ -143,5 +146,29 @@ textarea.form-control{
 .history-image{
 	width: 100%;
 	height: 700px;
-	margin-top: -31px;
+	margin-top: 56px;
+}
+.box{
+	display: flex;
+	flex-direction: column;
+}
+.favorite-image{
+	height: 600px;
+	width: 100%;
+}
+input[type="search"]{
+	width: 300px;
+	height: 30px;
+}
+.btn{
+	display: inline-block;
+}
+.search{
+	display: inline-block;
+	text-align: right;
+	height: 40px;
+	padding-left: 119px;
+}
+.dt{
+	display: inline-block;
 }
