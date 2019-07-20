@@ -1,18 +1,16 @@
-<h1>Serch#index</h1>
-<table>
-  <thead>
-    <tr>
-      <th><%= sort_link(@search, :title) -%></th>
-      <th><%= sort_link(@search, :synopsis) -%></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @search_novels.each do |novel| %>
-    <tr>
-      <td><%= novel.title %></td>
-      <td><%= novel.synopsis %></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
-<p>Find me in app/views/serch/index.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="history col-md-6">
+      <h3>検索結果</h3>
+      <% @search_novels.each do |novel| %>
+      <div class="well well-lg">
+                <p><%= link_to novel.title, novel_path(novel.id) %></p>
+                <p>><%= novel.synopsis.truncate(30) %></p>
+            </div>
+      <% end %>
+    </div>
+    <div class="col-md-6">
+        <%= image_tag('img/sample7_img.jpg', class: 'history-image') %>
+      </div>
+    </div>
+</div>

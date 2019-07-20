@@ -1,6 +1,19 @@
-<% @novel.each do |novel| %>
-    <h2><%= novel.title %></h2>
-    <%= novel.synopsis %>
-    <p>Tags:  <%= novel.tag_list %></p>
-  <% end %>
+<div class="container">
+	<div class="row">
+		<div class="history col-md-6">
+			<% @novel.each do |novel| %>
+			<div class="well well-lg">
+                <p><%= link_to novel.title, novel_path(novel.id) %></p>
+                <p>><%= novel.synopsis.truncate(30) %></p>
+                <div>タグ：
+				  <span class="label label-info">
+				  	<%= raw novel.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></span>
+			    </div>
+            </div>
+			<% end %>
+		</div>
+		<div class="col-md-6">
+				<%= image_tag('img/sample7_img.jpg', class: 'history-image') %>
+			</div>
+    </div>
 </div>
