@@ -24,6 +24,7 @@ class PagesController < ApplicationController
     @novel = Novel.find(@page.novel_id)
     new_history = @novel.histories.new
     new_history.user_id = current_user.id
+    new_history.page_id = @page.id
 
     if current_user.histories.exists?(novel_id: "#{params[:novel_id]}")
       old_history = current_user.histories.find_by(novel_id: "#{params[:novel_id]}")
