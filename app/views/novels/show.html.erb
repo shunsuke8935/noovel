@@ -11,6 +11,7 @@
 				  	<%= raw @novel.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></span>
 			    </div>
 				<div class="button1"><%= link_to 'この小説を読む', novel_pages_path(@novel.id), class:'btn btn-primary' %></div>
+				<div class="button1"><%= link_to '続きから読む', novel_page_path(@novel.id, @page.id), class:'btn btn-primary' %></div>
 				<% if @novel.user_id == current_user.id %>
 					<div class="button1">
 						<%= link_to '小説の続きを投稿する', new_novel_page_path(@novel.id), class:'btn btn-danger' %>
