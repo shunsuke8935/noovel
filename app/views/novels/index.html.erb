@@ -8,7 +8,7 @@
 			<div class="content">
 				<h3>新着小説</h3>
 
-				<% @novel.last(5).each do |novel| %>
+				<% @novel.last(5).reverse_each do |novel| %>
 					<div class="panel panel-info">
 			            <div class="panel-heading">
 				            <h5 class="panel-title"><%= link_to novel.title, novel_path(novel) %></h5>
@@ -19,7 +19,7 @@
 	            <% end %>
 			</div>
 			<div class="content">
-				<h3>いいねトップ</h3>
+				<h3>いいねトップ5</h3>
 
 				<% @ranks.each.with_index(1) do |novel, i| %>
 						<div class="panel panel-danger">

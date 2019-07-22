@@ -2,7 +2,11 @@
 	<div class="row">
 		<div class="col-md-6 col-md-offset-3">
 			<p class="noveltitle"><%= @novel.title %></p>
-				<div class="writer">作者：<%= @novel.user.name %></div>
+			    <% if @novel.user.present? %>
+				    <div class="writer">作者：<%= @novel.user.name %></div>
+				<% else %>
+				    <div class="writer">作者：退会済み</div>
+				<% end %>
 				<p>あらすじ</p>
 				<p><%= @novel.synopsis %></p>
 				<div>ジャンル：<%= @novel.genre %></div>

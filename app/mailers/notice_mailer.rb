@@ -4,6 +4,7 @@ class NoticeMailer < ApplicationMailer
 
     def notice_mail(novel)
 	  emails = novel.clips.map{|clip| clip.user.email}
+	  @novel = novel
 	  mail(from: 'mailertest782@gmail.com', to:  emails, subject: 'お気に入り作品の新規投稿がありました。')
     end
 end
