@@ -1,6 +1,6 @@
 <div class="container">
 	<div class="row">
-		<div class="history col-md-6">
+		<div class="col-md-6">
 			<% @novel.each do |novel| %>
 			<div class="well well-lg">
                 <p><%= link_to novel.title, novel_path(novel.id) %></p>

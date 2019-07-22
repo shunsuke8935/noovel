@@ -4,7 +4,7 @@
 			<h3>閲覧履歴</h3>
 			<% @history.reverse_each do |history| %>
 			<div class="well well-lg">
-                <p><%= link_to history.novel.title, novel_path(history) %></p>
+                <p><%= link_to history.novel.title, novel_path(history.novel_id) %></p>
                 <p>><%= history.novel.synopsis.truncate(30) %></p>
             </div>
 			<% end %>

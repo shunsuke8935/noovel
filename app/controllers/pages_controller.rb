@@ -9,6 +9,10 @@ class PagesController < ApplicationController
   	@novel = Novel.find(params[:novel_id])
   	@page.novel_id = @novel.id
   	@page.save
+
+    if @novel.clips.exists?
+     NoticeMailer.notice_mail(@novel).deliver
+    end
   	redirect_to novel_path(@novel.id)
   end
 
@@ -22,18 +26,19 @@ class PagesController < ApplicationController
   def show
     @page = Page.find(params[:id])
     @novel = Novel.find(@page.novel_id)
-    new_history = @novel.history.new
+    new_history = @novel.histories.new
     new_history.user_id = current_user.id
+    new_history.page_id = @page.id
 
-    if current_user.history.exists?(novel_id: "#{params[:novel_id]}")
-      old_history = current_user.history.find_by(novel_id: "#{params[:novel_id]}")
+    if current_user.histories.exists?(novel_id: "#{params[:novel_id]}")
+      old_history = current_user.histories.find_by(novel_id: "#{params[:novel_id]}")
       old_history.destroy
     end
 
     new_history.save
 
     histories_stock_limit = 10
-    histories = current_user.history.all
+    histories = current_user.histories.all
     if histories.count > histories_stock_limit
       histories[0].destroy
     end
