@@ -3,7 +3,7 @@ class Novel < ApplicationRecord
 	has_many :pages
 	has_many :favorites, dependent: :destroy
 	has_many :histories, dependent: :destroy
-	has_many :clips
+	has_many :clips, dependent: :destroy
 
 	acts_as_taggable
 
