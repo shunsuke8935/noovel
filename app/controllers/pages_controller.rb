@@ -9,6 +9,10 @@ class PagesController < ApplicationController
   	@novel = Novel.find(params[:novel_id])
   	@page.novel_id = @novel.id
   	@page.save
+
+    if @novel.clips.exists?
+     NoticeMailer.notice_mail(@novel).deliver
+    end
   	redirect_to novel_path(@novel.id)
   end
 
