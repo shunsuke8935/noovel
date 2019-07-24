@@ -1,4 +1,7 @@
 class Novel < ApplicationRecord
+	validates :title, presence: true
+	validates :synopsis, presence: true
+
 	belongs_to :user
 	has_many :pages
 	has_many :favorites, dependent: :destroy

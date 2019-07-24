@@ -7,15 +7,21 @@
 
 			<div class="content">
 				<h3>新着小説</h3>
-
+				<%# binding.pry %>
 				<% @novel.last(5).reverse_each do |novel| %>
-					<div class="panel panel-info">
-			            <div class="panel-heading">
-				            <h5 class="panel-title"><%= link_to novel.title, novel_path(novel) %></h5>
-				            <div class="writer-name"><h5><%= link_to novel.user.name, user_path(novel.user.id) %></h5></div>
-				        </div>
-			            <div class="panel-body"><%= novel.synopsis.truncate(50) %></div>
-		            </div>
+					<% if novel.pages.count >= 1 %>
+						<div class="panel panel-info">
+				            <div class="panel-heading">
+					            <h5 class="panel-title"><%= link_to novel.title, novel_path(novel) %></h5>
+					            <% if novel.user.name.present? %>
+					            <div class="writer-name"><h5><%= link_to novel.user.name, user_path(novel.user.id) %></h5></div>
+					            <% else %>
+					            <div class="writer-name"><h5>退会済み</h5></div>
+					            <% end %>
+					        </div>
+				            <div class="panel-body"><%= novel.synopsis.truncate(50) %></div>
+			            </div>
+			        <% end %>
 	            <% end %>
 			</div>
 			<div class="content">

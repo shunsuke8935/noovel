@@ -1,4 +1,6 @@
 class Page < ApplicationRecord
+	validates :title, presence: true
+	validates :text, presence: true
 	belongs_to :novel
 	has_many :histories, dependent: :destroy
 
