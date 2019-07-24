@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_20_101322) do
+ActiveRecord::Schema.define(version: 2019_07_24_110731) do
 
   create_table "clip_writers", force: :cascade do |t|
     t.integer "user_id"
@@ -41,9 +41,9 @@ ActiveRecord::Schema.define(version: 2019_07_20_101322) do
   end
 
   create_table "novels", force: :cascade do |t|
-    t.string "synopsis"
+    t.string "synopsis", null: false
     t.string "genre"
-    t.string "title"
+    t.string "title", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
@@ -51,8 +51,8 @@ ActiveRecord::Schema.define(version: 2019_07_20_101322) do
 
   create_table "pages", force: :cascade do |t|
     t.integer "novel_id"
-    t.string "title"
-    t.text "text"
+    t.string "title", null: false
+    t.text "text", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

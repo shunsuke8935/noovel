@@ -8,12 +8,15 @@ class PagesController < ApplicationController
   	@page = Page.new(page_params)
   	@novel = Novel.find(params[:novel_id])
   	@page.novel_id = @novel.id
-  	@page.save
+  	if @page.save
+      if @novel.clips.exists?
+         NoticeMailer.notice_mail(@novel).deliver
+      end
+     redirect_to novel_path(@novel)
 
-    if @novel.clips.exists?
-     NoticeMailer.notice_mail(@novel).deliver
+    else
+      redirect_back(fallback_location: root_path)
     end
-  	redirect_to novel_path(@novel.id)
   end
 
   def index

@@ -6,8 +6,13 @@ class NovelsController < ApplicationController
   def create
   	@novel = Novel.new(novel_params)
   	@novel.user_id = current_user.id
-  	@novel.save
-  	redirect_to new_novel_page_path(@novel.id)
+
+    if @novel.save
+      redirect_to new_novel_page_path(@novel.id)
+    else
+  	  redirect_to new_novel_path
+    end
+
   end
 
   def index
