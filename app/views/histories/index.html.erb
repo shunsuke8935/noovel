@@ -1,16 +1,31 @@
 <div class="container">
 	<div class="row">
 		<div class="history col-md-6">
-			<h3>閲覧履歴</h3>
+			<h1 class="small-title">閲覧履歴</h1>
+
+
 			<% @history.reverse_each do |history| %>
-			<div class="well well-lg">
-                <p><%= link_to history.novel.title, novel_path(history.novel_id) %></p>
-                <p>><%= history.novel.synopsis.truncate(30) %></p>
-            </div>
+	    	<div class="panel panel-default">
+				            <div class="panel-heading">
+					            <h5 class="panel-title"><%= link_to history.novel.title, novel_path(history.novel.id) %></h5>
+					            <div class="writer-name">
+					            	<h5>
+					            		<%= link_to history.user.name, user_path(history.user.id) %>
+					            	</h5>
+					            </div>
+					        </div>
+				            <div class="panel-body">
+				            	<%= history.novel.synopsis.truncate(30) %>
+				            </div>
+			            </div>
 			<% end %>
+
+
+
+
 		</div>
 		<div class="col-md-6">
-				<%= image_tag('img/sample2_img.jpg', class: 'history-image') %>
+				<%= image_tag('img/sample10_img.jpg', class: 'history-image') %>
 			</div>
     </div>
 </div>

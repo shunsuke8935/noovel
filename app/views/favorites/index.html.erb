@@ -6,7 +6,7 @@
 	    </div>
 		<div class="col-md-6">
 		<% @all_ranks.each.with_index(1) do |novel, i| %>
-			<div class="panel panel-info">
+			<div class="panel panel-default">
 	            <div class="panel-heading">
 		            <h5 class="panel-title"><%= "第#{i}位   " %><%= link_to novel.title, novel_path(novel), class:'favorite-panel-title' %><h5>ジャンル：<%= novel.genre %></h5>
 		            </h5>
