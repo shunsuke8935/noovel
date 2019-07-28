@@ -1,26 +1,25 @@
 <div class="container">
 	<div class="row">
-		<div class="box col-md-3">
-			<%= image_tag('img/sample3_img.jpg',  class: 'favorite-image') %>
-			<%= image_tag('img/sample4_img.jpg',  class: 'favorite-image') %>
-	    </div>
-		<div class="col-md-6">
-		<% @all_ranks.each.with_index(1) do |novel, i| %>
-			<div class="panel panel-default">
-	            <div class="panel-heading">
-		            <h5 class="panel-title"><%= "第#{i}位   " %><%= link_to novel.title, novel_path(novel), class:'favorite-panel-title' %><h5>ジャンル：<%= novel.genre %></h5>
-		            </h5>
-		            <div class="writer-name"><h5><%= link_to novel.user.name, user_path(novel.user.id) %></h5></div>
-		        </div>
+		<div class="col-md-9">
+		    <h1 class="small-title">いいねランキング</h1>
 
-	            <div class="panel-body"><%= novel.synopsis.truncate(100) %></div>
-			</div>
-		<% end %>
-        </div>
-        <div class="box col-md-3">
-        	<%= image_tag('img/sample5_img.jpg',  class: 'favorite-image') %>
-        	<%= image_tag('img/sample6_img.jpg',  class: 'favorite-image') %>
-        </div>
+
+		        <% @all_ranks.each.with_index(1) do |novel, i| %>
+			        <div class="panel panel-default">
+	                    <div class="panel-heading">
+		                    <h5 class="panel-title"><%= "第#{i}位   " %><%= link_to novel.title, novel_path(novel), class:'favorite-panel-title' %><h5>ジャンル：<%= novel.genre %></h5>
+		                    </h5>
+		                    <h5><%= novel.favorites.count %>いいね</h5>
+		                    <div>タグ：
+								<span class="label label-info">
+								 <%= raw novel.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></span>
+			                </div>
+		                    <div class="writer-name"><h5><%= link_to novel.user.name, user_path(novel.user.id) %></h5></div>
+		                </div>
+		                <div class="panel-body"><%= novel.synopsis.truncate(100) %></div>
+			        </div>
+			    <% end %>
+		</div>
     </div>
 </div>
 

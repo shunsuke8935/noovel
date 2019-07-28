@@ -95,7 +95,7 @@ h1.small-title::before {
 	font-size: 6px;
 }
 .panel-title{
-	font-size: 15px;
+	font-size: 30px;
 	display: inline-block;
 }
 .writer-name{
@@ -131,7 +131,7 @@ textarea.form-control{
 	font-size: 50px;
 }
 .mypage-image{
-	height: 600px;
+	height: 700px;
 	display: inline-block;
 	margin-top: 20px;
 }
@@ -157,7 +157,7 @@ textarea.form-control{
 	margin-top: 50px;
 }
 .favorite-panel-title{
-	font-size: 20px;
+	font-size: 30px;
 }
 .favorite-genre{
 	font-size: 10px;
@@ -201,4 +201,13 @@ input[type="search"]{
 	height: 34px;
 	font-size: 14px;
 
+}
+.user-info{
+	margin-top: 20px;
+}
+.mypage-image{
+	width: 587px;
+}
+.page-text{
+	font-size: 20px;
 }
