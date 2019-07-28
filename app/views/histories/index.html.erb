@@ -6,18 +6,18 @@
 
 			<% @history.reverse_each do |history| %>
 	    	<div class="panel panel-default">
-				            <div class="panel-heading">
-					            <h5 class="panel-title"><%= link_to history.novel.title, novel_path(history.novel.id) %></h5>
-					            <div class="writer-name">
-					            	<h5>
-					            		<%= link_to history.user.name, user_path(history.user.id) %>
-					            	</h5>
-					            </div>
-					        </div>
-				            <div class="panel-body">
-				            	<%= history.novel.synopsis.truncate(30) %>
-				            </div>
-			            </div>
+	            <div class="panel-heading">
+		            <h5 class="panel-title"><%= link_to history.novel.title, novel_path(history.novel.id) %></h5>
+		            <div class="writer-name">
+		            	<h5>
+		            		<%= link_to history.user.name, user_path(history.user.id) %>
+		            	</h5>
+		            </div>
+		        </div>
+		        <div class="panel-body">
+		        	<%= history.novel.synopsis.truncate(30) %>
+		        </div>
+            </div>
 			<% end %>
 
 
@@ -26,6 +26,6 @@
 		</div>
 		<div class="col-md-6">
 				<%= image_tag('img/sample10_img.jpg', class: 'history-image') %>
-			</div>
+	    </div>
     </div>
 </div>
