@@ -1,16 +1,49 @@
 <div class="container">
 	<div class="row">
-		<div class="side-bar col-md-3">
-			<div>広告スペース</div>
+		<div class="sidebar col-md-4">
+			<h1 class="small-title">ファンタジー</h1>
+			<% @genre_ranks.first(5).each do |genre| %>
+	    	<div class="panel panel-default">
+				            <div class="panel-heading">
+					            <h5 class="panel-title"><%= link_to genre.title, novel_path(genre.id) %></h5>
+					            <div class="writer-name">
+					            	<h5>
+					            		<%= link_to genre.user.name, user_path(genre.user.id) %>
+					            	</h5>
+					            </div>
+					        </div>
+				            <div class="panel-body">
+				            	<%= genre.synopsis.truncate(30) %>
+				            </div>
+			            </div>
+			<% end %>
+
+
+
+            <h1 class="small-title">恋愛</h1>
+			<% @genre2_ranks.first(5).each do |genre| %>
+		    	<div class="panel panel-default">
+					<div class="panel-heading">
+						<h5 class="panel-title"><%= link_to genre.title, novel_path(genre.id) %></h5>
+						<div class="writer-name">
+			            	<h5>
+			            		<%= link_to genre.user.name, user_path(genre.user.id) %>
+			            	</h5>
+						</div>
+				    </div>
+					<div class="panel-body">
+		            	<%= genre.synopsis.truncate(30) %>
+		            </div>
+				</div>
+			<% end %>
 		</div>
-		<div class="novels col-md-4 col-md-offset-1">
+		<div class="novels col-md-4">
 
 			<div class="content">
-				<h3>新着小説</h3>
-				<%# binding.pry %>
+				<h1 class="small-title">新着小説</h1>
 				<% @novel.last(5).reverse_each do |novel| %>
 					<% if novel.pages.count >= 1 %>
-						<div class="panel panel-info">
+						<div class="panel panel-default">
 				            <div class="panel-heading">
 					            <h5 class="panel-title"><%= link_to novel.title, novel_path(novel) %></h5>
 					            <% if novel.user.name.present? %>
@@ -25,10 +58,10 @@
 	            <% end %>
 			</div>
 			<div class="content">
-				<h3>いいねトップ5</h3>
+				<h1 class="small-title">いいねランキング5</h1>
 
 				<% @ranks.each.with_index(1) do |novel, i| %>
-						<div class="panel panel-danger">
+						<div class="panel panel-default">
 				            <div class="panel-heading">
 					            <h5 class="panel-title"><%= link_to novel.title, novel_path(novel) %></h5>
 					            <div class="writer-name">
@@ -45,30 +78,41 @@
 		    </div>
 		</div>
 
-	    <div class="sidebar col-md-3 col-md-offset-1">
-	    	<h3>ファンタジーランキング</h3>
-	    	<% @genre_ranks.each.with_index(1) do |genre| %>
-	    	<%= link_to genre.title, novel_path(genre.id) %>
-	    	<div class="alert alert-success" role="alert"><%= genre.synopsis.truncate(30) %></div>
-	    	<% end %>
+	    <div class="sidebar col-md-4">
 
-	    	<h3>恋愛ランキング</h3>
-	    	<% @genre2_ranks.each.with_index(1) do |genre| %>
-	    	<%= link_to genre.title, novel_path(genre.id) %>
-	    	<div class="alert alert-success" role="alert"><%= genre.synopsis.truncate(30) %></div>
-	    	<% end %>
+		    	<h1 class="small-title">ミステリー</h1>
+		    	<% @genre3_ranks.first(5).each do |genre| %>
+			    	<div class="panel panel-default">
+						<div class="panel-heading">
+							<h5 class="panel-title"><%= link_to genre.title, novel_path(genre.id) %></h5>
+							<div class="writer-name">
+				            	<h5>
+				            		<%= link_to genre.user.name, user_path(genre.user.id) %>
+				            	</h5>
+							</div>
+					    </div>
+						<div class="panel-body">
+			            	<%= genre.synopsis.truncate(30) %>
+			            </div>
+					</div>
+		    	<% end %>
 
-	    	<h3>ミステリーランキング</h3>
-	    	<% @genre3_ranks.each.with_index(1) do |genre| %>
-	    	<%= link_to genre.title, novel_path(genre.id) %>
-	    	<div class="alert alert-success" role="alert"><%= genre.synopsis.truncate(30) %></div>
-	    	<% end %>
-
-	    	<h3>ホラーランキング</h3>
-	    	<% @genre4_ranks.each.with_index(1) do |genre| %>
-	    	<%= link_to genre.title, novel_path(genre.id) %>
-	    	<div class="alert alert-success" role="alert"><%= genre.synopsis.truncate(30) %></div>
-	    	<% end %>
-	    </div>
+		    	<h1 class="small-title">ホラー</h1>
+		    	<% @genre4_ranks.first(5).each do |genre| %>
+		    	<div class="panel panel-default">
+					<div class="panel-heading">
+						<h5 class="panel-title"><%= link_to genre.title, novel_path(genre.id) %></h5>
+						<div class="writer-name">
+			            	<h5>
+			            		<%= link_to genre.user.name, user_path(genre.user.id) %>
+			            	</h5>
+						</div>
+				    </div>
+					<div class="panel-body">
+		            	<%= genre.synopsis.truncate(30) %>
+		            </div>
+				</div>
+				<% end %>
+		    </div>
+		</div>
 	</div>
-</div>
