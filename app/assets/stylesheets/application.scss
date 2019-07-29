@@ -83,8 +83,12 @@ h1.small-title::before {
 .list-item{
 	display: inline-block;
 }
+nav.navbar{
+	width: 100%;
+}
 .nav-element{
 	background-color: #AAAAAA;
+	width: 100%;
 	line-height: 40px
 }
 .list-item{
@@ -192,7 +196,7 @@ input[type="search"]{
 	display: inline-block;
 	text-align: right;
 	height: 40px;
-	padding-left: 46px;
+	padding-left: 30px;
 }
 .dt{
 	display: inline-block;
@@ -210,4 +214,21 @@ input[type="search"]{
 }
 .page-text{
 	font-size: 20px;
+}
+
+
+@media screen and (max-width:425px) {
+.navbar{
+	width: 100%;
+}
+.nav-element{
+	width: 100%;
+}
+.header-image{
+	width: 100%;
+}
+header{
+	width: 100%;
+}
+
 }
