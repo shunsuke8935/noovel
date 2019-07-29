@@ -27,9 +27,11 @@ class NovelsController < ApplicationController
 
   def show
   	@novel = Novel.find(params[:id])
-    @favorite = Favorite.find_by(user_id:current_user.id, novel_id: @novel.id)
-    @clip = Clip.find_by(user_id: current_user.id, novel_id: @novel)
-    @history = History.find_by(user_id: current_user.id, novel_id: @novel)
+    if  user_signed_in?
+      @favorite = Favorite.find_by(user_id:current_user.id, novel_id: @novel.id)
+      @clip = Clip.find_by(user_id: current_user.id, novel_id: @novel)
+      @history = History.find_by(user_id: current_user.id, novel_id: @novel)
+    end
   end
 
   def edit
